@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bss4mgihbqfdc" path="res://character_body_2d.gd" id="1_onrkg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
-radius = 31.622776
+radius = 61.03278
 
 [node name="Player" type="Node2D" unique_id=65071869]
 
