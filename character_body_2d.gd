@@ -18,10 +18,15 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("backward", "forward")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	var climbdirection := Input.get_axis('jump', "down")
+	
+	if onrope:
+		if climbdirection: position.y += climbdirection
+	else:	
+		if direction && not onrope:
+			velocity.x = direction * SPEED
+		elif not direction && not onrope:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
 func enter_rope(area):
@@ -36,8 +41,13 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		call_deferred('enter_rope', area)
 
 func _exit_rope():
-	pass
-
+	area.monitoring = false
+	reparent(get_tree().current_scene)
+	rotation_degrees = 0
+	
+	await get_tree().create_timer(0.2).timeout
+	
+	area.monitoring = true
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group('rope') && onrope:
 		onrope = false

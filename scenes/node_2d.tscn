@@ -4,16 +4,44 @@
 [ext_resource type="Script" uid="uid://cctgvgpd1p763" path="res://scenes/node_2d.gd" id="1_rnjyy"]
 [ext_resource type="PackedScene" uid="uid://bylp2tvf6hcn4" path="res://scenes/floor.tscn" id="2_4dvvg"]
 [ext_resource type="Script" uid="uid://cgsuh6rpnvljk" path="res://scenes/autoload.gd" id="4_4vge2"]
+[ext_resource type="PackedScene" uid="uid://dw657c5t4343a" path="res://rope.tscn" id="5_04qyp"]
+[ext_resource type="PackedScene" uid="uid://dlwfsuau0217c" path="res://walls.tscn" id="6_j7wrs"]
 
 [node name="Main" type="Node2D" unique_id=362349051]
 script = ExtResource("1_rnjyy")
 
 [node name="Node2D" parent="." unique_id=65071869 instance=ExtResource("1_6e84v")]
-position = Vector2(1283, -1327)
+position = Vector2(1322, -411)
 
-[node name="Node2D2" parent="." unique_id=2089298465 instance=ExtResource("2_4dvvg")]
+[node name="floors" parent="." unique_id=2089298465 instance=ExtResource("2_4dvvg")]
 position = Vector2(1462.9998, 622.00006)
-scale = Vector2(9.035, 0.26)
+scale = Vector2(3.31, 0.7)
 
 [node name="Node" type="Node" parent="." unique_id=718359539]
 script = ExtResource("4_4vge2")
+
+[node name="walls" parent="." unique_id=564183621 instance=ExtResource("6_j7wrs")]
+position = Vector2(733.99994, -214)
+scale = Vector2(0.018, 8.91)
+
+[node name="walls2" parent="." unique_id=1021647036 instance=ExtResource("6_j7wrs")]
+position = Vector2(2156.0002, -415.00003)
+scale = Vector2(0.018, 10.89)
+
+[node name="Floor" parent="." unique_id=773079066 instance=ExtResource("2_4dvvg")]
+position = Vector2(972, 383.00003)
+scale = Vector2(0.45, 0.975)
+
+[node name="Floor2" parent="." unique_id=220416573 instance=ExtResource("2_4dvvg")]
+position = Vector2(639, 191)
+
+[node name="Floor3" parent="." unique_id=40226185 instance=ExtResource("2_4dvvg")]
+position = Vector2(1121, 65)
+scale = Vector2(0.455, 0.23)
+
+[node name="Floor4" parent="." unique_id=1556767390 instance=ExtResource("2_4dvvg")]
+position = Vector2(1754.9999, -88)
+scale = Vector2(0.827, 0.328)
+
+[node name="Rope" parent="." unique_id=692898755 instance=ExtResource("5_04qyp")]
+position = Vector2(1850, -498)

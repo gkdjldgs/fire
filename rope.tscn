@@ -3,11 +3,20 @@
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_0756u"]
 [ext_resource type="Script" uid="uid://vq4arqxg8x3c" path="res://rope.gd" id="1_nmccy"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmccy"]
+size = Vector2(6, 404)
+
 [node name="Rope" type="Node2D" unique_id=692898755]
 script = ExtResource("1_nmccy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=156109023]
 modulate = Color(0.2713893, 0.1856539, 0.027023083, 1)
-position = Vector2(0, 98)
-scale = Vector2(0.085, 1.55)
+position = Vector2(0, 196.06285)
+scale = Vector2(-0.04796415, 3.1541076)
 texture = ExtResource("1_0756u")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=713510055 groups=["rope"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1629766087 groups=["rope"]]
+position = Vector2(-1, 202)
+shape = SubResource("RectangleShape2D_nmccy")
