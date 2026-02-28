@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://dw657c5t4343a"]
 
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_0756u"]
+[ext_resource type="Script" uid="uid://vq4arqxg8x3c" path="res://rope.gd" id="1_nmccy"]
 
-[node name="Node2D" type="Node2D" unique_id=692898755]
+[node name="Rope" type="Node2D" unique_id=692898755]
+script = ExtResource("1_nmccy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=156109023]
+modulate = Color(0.2713893, 0.1856539, 0.027023083, 1)
 position = Vector2(0, 98)
 scale = Vector2(0.085, 1.55)
 texture = ExtResource("1_0756u")

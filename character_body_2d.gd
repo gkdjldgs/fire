@@ -7,11 +7,12 @@ var onrope = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() && not onrope:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and (is_on_floor() || onrope):
+		if onrope: _exit_rope()
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -23,3 +24,20 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+func enter_rope(area):
+	onrope = true
+	reparent(area)
+	global_position = area.get_rope_position(self)
+	rotation_degrees = 0
+	velocity = Vector2(0,0)
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group('rope') && not onrope:
+		call_deferred('enter_rope', area)
+
+func _exit_rope():
+	pass
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.is_in_group('rope') && onrope:
+		onrope = false
