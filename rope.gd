@@ -11,8 +11,8 @@ func _process(delta: float) -> void:
 	pass
 
 func get_rope_position(body):
-	var newpos
-	var shortestdistance
+	var newpos = Vector2.ZERO
+	var shortestdistance = 0
 	
 	for child in get_children():
 		if not child is Sprite2D: continue

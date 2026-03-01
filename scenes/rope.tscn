@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dw657c5t4343a"]
+
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://images/icon.svg" id="1_0756u"]
+[ext_resource type="Script" uid="uid://vq4arqxg8x3c" path="res://rope.gd" id="1_nmccy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmccy"]
+size = Vector2(3.75, 406)
+
+[node name="Rope" type="Area2D" unique_id=1404770568 groups=["rope"]]
+scale = Vector2(1, 2)
+script = ExtResource("1_nmccy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=156109023]
+modulate = Color(0.2713893, 0.1856539, 0.027023083, 1)
+position = Vector2(2.9998603, 413.49997)
+rotation = -3.1415927
+scale = Vector2(-0.07850002, 6.2583566)
+texture = ExtResource("1_0756u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1629766087]
+position = Vector2(4, 426.5)
+scale = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_nmccy")

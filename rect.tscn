@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ce1ni0iam7ffh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ibbnn"]
+
+[node name="Node2D" type="Node2D" unique_id=565991452]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1986495726]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1971079344]
+position = Vector2(-0.28426886, 1.0000013)
+rotation = 0.7853982
+scale = Vector2(3.9999998, 3.9999998)
+shape = SubResource("CircleShape2D_ibbnn")
