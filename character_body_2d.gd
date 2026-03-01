@@ -1,27 +1,38 @@
 extends CharacterBody2D
 @onready var area = $Area2D
 @onready var text = $RichTextLabel
+@onready var sprite = $animatedsprite
 const SPEED = 300.0
-var JUMP_VELOCITY = -600
+var JUMP_VELOCITY = -650
 var onrope = false
-var stop = false
+var stop = true
+var look = false
 func _ready() -> void:
-	stop = true
-	await get_tree().create_timer(1.3).timeout
-	autoload.tutorial = 1
+	await get_tree().create_timer(2.6).timeout
 	stop = false
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("forward"):
+		look = false
+	elif Input.is_action_just_pressed("backward"):
+		look = true
 	# Add the gravity.
 	if not is_on_floor() && not onrope:
 		velocity += get_gravity() * delta
-
+		
 	# Handle jump.
 	
 	if Input.is_action_just_pressed("jump") and (is_on_floor() || onrope) and stop == false:
 		if onrope: _exit_rope()
 		velocity.y = JUMP_VELOCITY
-		if autoload.tutorial <= 1:
-			autoload.tutorial = 2
+		if look == false:
+			sprite.play("rump")
+		if look == true:
+			sprite.play('lump')
+		await sprite.animation_finished
+		if look == false:
+			sprite.play('ridle')
+		if look == true:
+			sprite.play('lidle')
 	elif stop == true:
 		pass
 	# Get the input direction and handle the movement/deceleration.
@@ -34,8 +45,16 @@ func _physics_process(delta: float) -> void:
 	else:	
 		if direction && not onrope and stop == false:
 			velocity.x = direction * SPEED
+			if look == false and is_on_floor():
+				sprite.play('ralk')
+			if look == true and is_on_floor():
+				sprite.play('lark')
 		elif not direction && not onrope or stop == true:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+			#if look == false and stop == false:
+			#	sprite.play('ridle')
+			#if look == true and stop == false:
+			#	sprite.play('lidle')
 
 	move_and_slide()
 func enter_rope(rope_area):

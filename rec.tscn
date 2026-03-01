@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://karsisd5tow6"]
+
+[ext_resource type="Texture2D" uid="uid://bkqv5mmp0ataj" path="res://images/icon.jpg" id="1_xlw70"]
+
+[node name="Node" type="Node2D" unique_id=1325079952]
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=555718918]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+position = Vector2(8, 1)
+rotation = -3.1415927
+scale = Vector2(0.12000036, -0.72)
+texture = ExtResource("1_xlw70")

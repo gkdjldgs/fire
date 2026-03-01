@@ -5,6 +5,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgngl"]
 size = Vector2(424, 18)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ukw5w"]
+polygon = PackedVector2Array(-205, -8, -203, 12, 212, 12, 212, -6)
+
 [node name="Floor" type="Node2D" unique_id=2089298465]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1522586956]
@@ -14,6 +17,11 @@ position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_cgngl")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=2017880066]
+visible = false
 position = Vector2(1.3873796, 1.6785221)
 scale = Vector2(3.3064475, 0.1612731)
 texture = ExtResource("1_oj3tl")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=2074674347]
+visible = false
+occluder = SubResource("OccluderPolygon2D_ukw5w")
