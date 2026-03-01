@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b6vf1aji6dy38"]
+
+[ext_resource type="PackedScene" uid="uid://bylp2tvf6hcn4" path="res://scenes/floor.tscn" id="1_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://b4d1k4i0awvd1" path="res://background.tscn" id="2_ppyta"]
+[ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://scenes/player.tscn" id="3_ykrsh"]
+
+[node name="Node2D" type="Node2D" unique_id=1840420911]
+
+[node name="Floor" parent="." unique_id=2089298465 instance=ExtResource("1_6uqi0")]
+position = Vector2(118, 650)
+scale = Vector2(9.165, 1)
+
+[node name="BACKGROUND" parent="." unique_id=1653104987 instance=ExtResource("2_ppyta")]
+scroll_offset = Vector2(4, -1)
+
+[node name="Player" parent="." unique_id=2050151969 instance=ExtResource("3_ykrsh")]
+position = Vector2(185, 567)
