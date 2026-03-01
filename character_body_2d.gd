@@ -7,7 +7,7 @@ var onrope = false
 var stop = false
 func _ready() -> void:
 	stop = true
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(1.3).timeout
 	autoload.tutorial = 1
 	stop = false
 func _physics_process(delta: float) -> void:
