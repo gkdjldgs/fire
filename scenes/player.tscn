@@ -396,7 +396,7 @@ position = Vector2(1, -1.5)
 shape = SubResource("RectangleShape2D_qhqgy")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=754873316]
-zoom = Vector2(1.03, 1.03)
+zoom = Vector2(0.79, 0.79)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1952180066]
 position = Vector2(2.3841858e-07, -5.9604645e-08)
@@ -405,6 +405,7 @@ scale = Vector2(1.36, 1.36)
 shape = SubResource("CircleShape2D_g2els")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=139650012]
+position = Vector2(0, -2)
 color = Color(0.95596343, 0.9559633, 0.95596343, 1)
 energy = 1.5
 blend_mode = 2
@@ -413,7 +414,11 @@ shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("3_qhqgy")
 
 [node name="Huh" type="Sprite2D" parent="." unique_id=388536483]
-modulate = Color(1, 1, 1, 0.65882355)
+z_index = 5
+scale = Vector2(1.735, 1.735)
+texture = ExtResource("4_dqkch")
+
+[node name="Huh" type="Sprite2D" parent="Huh" unique_id=1249485792]
 z_index = 5
 scale = Vector2(1.735, 1.735)
 texture = ExtResource("4_dqkch")
